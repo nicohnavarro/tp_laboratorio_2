@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tp_01
+namespace Entidades
 {
-    class Calculadora
+    public class Calculadora
     {
         /// <summary>
         /// Method to make an operation
@@ -18,7 +18,7 @@ namespace tp_01
         public static double Operar(Numero numero1, Numero numero2, string operador)
         {
             double resultado = 0;
-            switch(ValidarOperador(operador))
+            switch (ValidarOperador(operador))
             {
                 case "+":
                     resultado = numero1 + numero2;
@@ -30,18 +30,15 @@ namespace tp_01
                     resultado = numero1 * numero2;
                     break;
                 case "/":
+                    if((numero1 / numero2).ToString() == (0.0 / 0).ToString())
                     {
-                        if (numero2.GetNumero() == 0)
-                        {
-                            resultado = double.MinValue;
-                            break;
-                        }
-                        else
-                        {
-                            resultado = numero1 / numero2;
-                            break;
-                        }
+                        resultado = double.MinValue;
                     }
+                    else
+                    {
+                        resultado = numero1 / numero2;
+                    }
+                    break;
             }
             return resultado;
         }
@@ -53,17 +50,12 @@ namespace tp_01
         /// <returns>possible operator</returns>
         private static string ValidarOperador(string operador)
         {
-            string retorno;
+            string retorno="+";
             if (operador == "+" || operador == "-" || operador == "*" || operador == "/")
             {
                 retorno = operador;
             }
-            else
-            {
-                retorno = "+";
-            }
             return retorno;
         }
-
     }
 }

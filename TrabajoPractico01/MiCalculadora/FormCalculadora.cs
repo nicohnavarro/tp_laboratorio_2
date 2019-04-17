@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
-namespace tp_01
+namespace MiCalculadora
 {
     public partial class FormCalculadora : Form
     {
         public FormCalculadora()
         {
             InitializeComponent();
-
+            cmbOperador.Text = "+";
         }
 
         /// <summary>
@@ -25,14 +26,14 @@ namespace tp_01
         /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            if(txtNumero1.Text==""|| txtNumero2.Text=="" || cmbOperador.Text=="")
+            if (txtNumero1.Text == "" || txtNumero2.Text == "" || cmbOperador.Text == "")
             {
                 MessageBox.Show("Primero debes Ingresar: \n -Numero 1\n -Numero 2\n -Operador\n", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
                 double resultado;
-                resultado=Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
+                resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
                 lblResultado.Text = resultado.ToString();
             }
         }
@@ -104,7 +105,7 @@ namespace tp_01
         /// <param name="numeroStr2">txtbox2</param>
         /// <param name="operador">cmbox</param>
         /// <returns>double result</returns>
-        private static double Operar(string numeroStr1,string numeroStr2,string operador)
+        private static double Operar(string numeroStr1, string numeroStr2, string operador)
         {
             double resultado;
             Numero numero1 = new Numero(numeroStr1);

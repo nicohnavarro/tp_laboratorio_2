@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tp_01
+namespace Entidades
 {
-    class Numero
+    public class Numero
     {
         private double numero;
 
@@ -30,11 +30,11 @@ namespace tp_01
         {
             string retorno;
             double total = 0;
-            for (int i =0; i< binario.Length; i++)
+            for (int i = 0; i < binario.Length; i++)
             {
                 if (binario[i] == '1')
                 {
-                    total = total + Math.Pow(2,(binario.Length-(i+1)));
+                    total = total + Math.Pow(2, (binario.Length - (i + 1)));
                 }
             }
             retorno = total.ToString();
@@ -77,27 +77,25 @@ namespace tp_01
             string resultado;
             double numeroFinal;
             Numero auxNumero = new Numero();
-            auxNumero.SetNumero=numero;
+            auxNumero.SetNumero = numero;
             numeroFinal = TrabajarConBinarios(auxNumero.numero);
-            resultado=DecimalBinario(numeroFinal);
+            resultado = DecimalBinario(numeroFinal);
             return resultado;
         }
 
         /// <summary>
         /// Builder
         /// </summary>
-        public Numero()
+        public Numero():this(0)
         {
-            this.numero = 0;
         }
 
         /// <summary>
         /// Builder with parametre
         /// </summary>
         /// <param name="numero">double number</param>
-        public Numero(double numero)
+        public Numero(double numero):this(numero.ToString())
         {
-            this.numero = numero;
         }
 
         /// <summary>
@@ -106,7 +104,7 @@ namespace tp_01
         /// <param name="strNumero">string number</param>
         public Numero(string strNumero)
         {
-            this.SetNumero=strNumero;
+            SetNumero = strNumero;
         }
 
         /// <summary>
@@ -118,7 +116,7 @@ namespace tp_01
         public static double operator -(Numero numero1, Numero numero2)
         {
             double resultado;
-            resultado=numero1.numero - numero2.numero;
+            resultado = numero1.numero - numero2.numero;
             return resultado;
         }
 
@@ -188,11 +186,5 @@ namespace tp_01
             numeroAux = Math.Abs(numero);
             return numeroAux;
         }
-
-        public double GetNumero()
-        {
-            return this.numero;
-        }
-
     }
 }

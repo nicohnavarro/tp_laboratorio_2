@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace tp_01
+namespace MiCalculadora
 {
     static class Program
     {
