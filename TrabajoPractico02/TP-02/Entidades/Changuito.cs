@@ -19,10 +19,19 @@ namespace Entidades_2018
         }
 
         #region "Constructores"
+
+        /// <summary>
+        /// Builder
+        /// </summary>
         private Changuito()
         {
             this.productos = new List<Producto>();
         }
+
+        /// <summary>
+        /// Builder with parametres
+        /// </summary>
+        /// <param name="espacioDisponible"></param>
         public Changuito(int espacioDisponible):this()
         {
             this.espacioDisponible = espacioDisponible;
@@ -55,24 +64,24 @@ namespace Entidades_2018
 
             sb.AppendFormat("Tenemos {0} lugares ocupados de un total de {1} disponibles", c.productos.Count, c.espacioDisponible);
             sb.AppendLine("");
-            foreach (Producto v in c.productos)
+            foreach (Producto productoAux in c.productos)
             {
                 switch (tipo)
                 {
                     case ETipo.Snacks:
-                        if(v is Snacks)
-                            sb.AppendLine(v.Mostrar());
+                        if(productoAux is Snacks)
+                            sb.AppendLine(productoAux.Mostrar());
                         break;
                     case ETipo.Dulce:
-                        if(v is Dulce)
-                            sb.AppendLine(v.Mostrar());
+                        if(productoAux is Dulce)
+                            sb.AppendLine(productoAux.Mostrar());
                         break;
                     case ETipo.Leche:
-                        if(v is Leche)
-                            sb.AppendLine(v.Mostrar());
+                        if(productoAux is Leche)
+                            sb.AppendLine(productoAux.Mostrar());
                         break;
                     default:
-                        sb.AppendLine(v.Mostrar());
+                        sb.AppendLine(productoAux.Mostrar());
                         break;
                 }
             }
@@ -111,11 +120,11 @@ namespace Entidades_2018
         /// <returns></returns>
         public static Changuito operator -(Changuito c, Producto p)
         {
-            foreach (Producto v in c.productos)
+            foreach (Producto productoAux in c.productos)
             {
-                if (v == p)
+                if (productoAux == p)
                 {
-                    c.productos.Remove(v);
+                    c.productos.Remove(productoAux);
                     break;
                 }
             }

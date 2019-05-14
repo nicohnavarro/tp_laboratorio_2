@@ -22,12 +22,12 @@ namespace Entidades_2018
         /// <summary>
         /// Builder of Product
         /// </summary>
-        /// <param name="patente"></param>
+        /// <param name="codigoDeBarras"></param>
         /// <param name="marca"></param>
         /// <param name="color"></param>
-        protected Producto(string patente,EMarca marca,ConsoleColor color)
+        protected Producto(string codigoDeBarras,EMarca marca,ConsoleColor color)
         {
-            this.codigoDeBarras = patente;
+            this.codigoDeBarras = codigoDeBarras;
             this.marca = marca;
             this.colorPrimarioEmpaque = color;
         }
@@ -61,22 +61,22 @@ namespace Entidades_2018
         /// <summary>
         /// Dos productos son iguales si comparten el mismo código de barras
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
+        /// <param name="producto1"></param>
+        /// <param name="producto2"></param>
         /// <returns></returns>
-        public static bool operator ==(Producto v1, Producto v2)
+        public static bool operator ==(Producto producto1, Producto producto2)
         {
-            return (v1.codigoDeBarras == v2.codigoDeBarras);
+            return (producto1.codigoDeBarras == producto2.codigoDeBarras);
         }
         /// <summary>
         /// Dos productos son distintos si su código de barras es distinto
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
+        /// <param name="producto1"></param>
+        /// <param name="producto2"></param>
         /// <returns></returns>
-        public static bool operator !=(Producto v1, Producto v2)
+        public static bool operator !=(Producto producto1, Producto producto2)
         {
-            return !(v1==v2);
+            return !(producto1==producto2);
         }
     }
 }
