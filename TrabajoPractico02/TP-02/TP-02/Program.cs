@@ -44,6 +44,7 @@ namespace TP_02_2018
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
+            Console.Beep();
 
             // Quito un item y muestro
             changoDeCompras -= c1;
@@ -52,7 +53,7 @@ namespace TP_02_2018
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
-
+            Console.Beep();
 
 
             // Muestro solo Leches /-> Se intercambiaron con mostrar solo Dulces por el ejemplo funcional
@@ -60,12 +61,14 @@ namespace TP_02_2018
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
+            Console.Beep();
 
             // Muestro solo Dulces /-> Se intercambiaron con mostrar solo Leches por el ejemplo funcional
             Console.WriteLine(Changuito.Mostrar(changoDeCompras, Changuito.ETipo.Dulce));
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
+            Console.Beep();
 
             // Muestro solo Snacks
             Console.WriteLine(Changuito.Mostrar(changoDeCompras, Changuito.ETipo.Snacks));
