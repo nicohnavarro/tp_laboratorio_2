@@ -97,10 +97,10 @@ namespace ClasesInstanciables
             public static bool Guardar(Universidad uni)
             {
                 bool retorno = false;
-                Xml<Universidad> nuevoSerializacion = new Xml<Universidad>();
+                Xml<Universidad> newSerializer = new Xml<Universidad>();
                 try
                 {
-                    nuevoSerializacion.Guardar("Universidad", uni);
+                    newSerializer.Guardar("Universidad", uni);
                     retorno = true;
                 }
                 catch (ArchivosException e)
@@ -114,12 +114,12 @@ namespace ClasesInstanciables
             public static Universidad Leer()
             {
 
-                Xml<Universidad> nuevoSerializacion = new Xml<Universidad>();
+                Xml<Universidad> newSerializer = new Xml<Universidad>();
                 Universidad retorno;
                 try
                 {
 
-                    nuevoSerializacion.Leer("Universidad", out retorno);
+                    newSerializer.Leer("Universidad", out retorno);
 
                 }
                 catch (ArchivosException e)
