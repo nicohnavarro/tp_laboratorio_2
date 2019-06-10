@@ -75,21 +75,21 @@ namespace ClasesInstanciables
         }
         protected override string ParticiparEnClase()
         {
-            StringBuilder mostrar = new StringBuilder();
-            mostrar.AppendLine("CLASES DEL DIA:");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("CLASES DEL DIA:");
             foreach (Universidad.EClases clase in claseDelDia)
             {
-                mostrar.AppendFormat("{0}\n", clase);
+                sb.AppendFormat("{0}\n", clase);
             }
 
-            return mostrar.ToString();
+            return sb.ToString();
         }
 
         protected override string MostrarDatos()
         {
-            StringBuilder mostrar = new StringBuilder();
-            mostrar.AppendLine(base.MostrarDatos());
-            return mostrar.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.MostrarDatos());
+            return sb.ToString();
         }
 
         public override string ToString()
