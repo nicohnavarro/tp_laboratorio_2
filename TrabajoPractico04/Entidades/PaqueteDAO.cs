@@ -20,8 +20,8 @@ namespace Entidades
         /// </summary>
         static PaqueteDAO()
         {
-            //string commandStr = @"Data Source= .\SQLEXPRESS; Initial Catalog=correo-sp-2017; Integrated Security = True";
-            string commandStr = @"Data Source= ALPHA\SQLEXPRESS; Initial Catalog=correo-sp-2017; Integrated Security = True";
+            string commandStr = @"Data Source= .\SQLEXPRESS; Initial Catalog=correo-sp-2017; Integrated Security = True";
+            //string commandStr = @"Data Source= ALPHA\SQLEXPRESS; Initial Catalog=correo-sp-2017; Integrated Security = True";
             try
             {
                 conexion = new SqlConnection(commandStr);
