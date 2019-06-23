@@ -61,7 +61,10 @@ namespace MiCalculadora
             string num1 = txtNumero1.Text;
             string num2 = txtNumero2.Text;
             string operador = cmbOperador.Text.ToString();
-            lblResultado.Text = Operar(num1, num2, operador).ToString();
+            if (txtNumero1.Text == "" || txtNumero2.Text == "" || cmbOperador.Text == "")
+                MessageBox.Show("Primero debes Ingresar: \n -Numero 1\n -Numero 2\n -Operador\n", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+                lblResultado.Text = Operar(num1, num2, operador).ToString();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
