@@ -20,13 +20,13 @@ namespace Archivos
 
             try
             {
-                writer = new XmlTextWriter(archivo, null);
+                writer = new XmlTextWriter(archivo, Encoding.UTF8);
                 serializer.Serialize(writer, datos);
                 retorno = true;
             }
             catch(Exception e)
             {
-                retorno = false;
+                throw new ArchivosException(e);
             }
             finally
             {
@@ -48,8 +48,7 @@ namespace Archivos
             }
             catch(Exception e)
             {
-                retorno = false;
-                datos = default(T);
+                throw new ArchivosException(e);
             }
             finally
             {

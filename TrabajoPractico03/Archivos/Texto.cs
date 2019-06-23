@@ -15,7 +15,7 @@ namespace Archivos
             bool retorno = false;
             try
             {
-                using (StreamWriter sw = new StreamWriter(archivo, true))
+                using (StreamWriter sw = new StreamWriter(archivo,true))
                 {
                     sw.WriteLine(datos);
                     retorno= true;
@@ -43,7 +43,7 @@ namespace Archivos
             }
             catch(ArchivosException e)
             {
-                datos = "No se pudo leer el archivo";
+                datos = e.Message;
                 Console.WriteLine(e.Message);
                 retorno = false;
             }

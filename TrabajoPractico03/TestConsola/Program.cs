@@ -104,8 +104,12 @@ namespace TestConsola
             //Console.Clear();
             try
             {
-                Universidad.Guardar(gim);
-                Console.WriteLine("Archivo de Universidad guardado.");
+                if(Universidad.Guardar(gim))
+                {
+                    Console.WriteLine("Archivo de Universidad guardado.");
+                }
+
+                
             }
             catch (ArchivosException e)
             {
@@ -114,8 +118,12 @@ namespace TestConsola
             try
             {
                 int jornada = 0;
-                Jornada.Guardar(gim[jornada]);
-                Console.WriteLine("Archivo de Jornada {0} guardado.", jornada);
+                if(Jornada.Guardar(gim[jornada]))
+                {
+                    Console.WriteLine("Archivo de Jornada {0} guardado.", jornada);
+                }
+                
+                
                 //Console.WriteLine(Jornada.Leer());
             }
             catch (ArchivosException e)
