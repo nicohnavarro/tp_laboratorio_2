@@ -56,7 +56,7 @@ namespace Entidades
         /// <returns>Informacion del paquete</returns>
         public string MostrarDatos(IMostrar<Paquete> elemento)
         {
-            return string.Format("{0} PARA {1}",this.TrackingID,this.DireccionEntrega);
+            return string.Format("{0} para {1}\n",this.TrackingID,this.DireccionEntrega);
         }
 
         //Sobrecargas
@@ -72,7 +72,7 @@ namespace Entidades
             if(paquete1.TrackingID==paquete2.TrackingID)
             {
                 retorno = true;
-                throw new TrackingIdRepetidoException("Son Iguales de Id");
+                throw new TrackingIdRepetidoException("Lamentablemente hay dos paquetes con el mismo TrackingID");
             }
             return retorno;
         }
@@ -98,7 +98,7 @@ namespace Entidades
             return this.MostrarDatos(this);
         }
 
-        //Falta Evento y Delegado
+        //Evento y Delegado
         public event DelegadoEstado InformaEstado;
         public delegate void DelegadoEstado(object sender, EventArgs e);
     }

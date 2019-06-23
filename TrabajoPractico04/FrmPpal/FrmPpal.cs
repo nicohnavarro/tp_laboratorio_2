@@ -30,16 +30,17 @@ namespace FrmPpal
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string direccion=txtDireccion.Text;
-            string tracking=mtxtTrackingID.Text;
-            Paquete nuevoPaquete = new Paquete(direccion,tracking);
+            string direccion = txtDireccion.Text;
+            string tracking = mtxtTrackingID.Text;
+            Paquete nuevoPaquete = new Paquete(direccion, tracking);
             nuevoPaquete.InformaEstado += paq_InformaEstado;
             try
             {
                 this.correo += nuevoPaquete;
-            }catch(TrackingIdRepetidoException exception)
+            }
+            catch (TrackingIdRepetidoException exception)
             {
-                MessageBox.Show(exception.Message,"UPS!",MessageBoxButtons.RetryCancel,MessageBoxIcon.Exclamation);
+                MessageBox.Show(exception.Message, "UPS!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
             }
             this.ActualizarEstados();
         }
@@ -71,9 +72,9 @@ namespace FrmPpal
             lstEstadoIngresado.Items.Clear();
             lstEstadoEnViaje.Items.Clear();
             lstEstadoEntregado.Items.Clear();
-            foreach(Paquete paqueteAux in correo.Paquetes)
+            foreach (Paquete paqueteAux in correo.Paquetes)
             {
-                switch((int)paqueteAux.Estado)
+                switch ((int)paqueteAux.Estado)
                 {
                     case 0:
                         lstEstadoIngresado.Items.Add(paqueteAux);
@@ -114,14 +115,14 @@ namespace FrmPpal
         /// <param name="elemento"></param>
         private void MostrarInformacion<T>(IMostrar<T> elemento)
         {
-            if(elemento!=null)
+            if (elemento != null)
             {
-                this.rtbMostrar.Text =elemento.MostrarDatos(elemento);
+                this.rtbMostrar.Text = elemento.MostrarDatos(elemento);
                 try
                 {
                     rtbMostrar.Text.Guardar("salida.txt");
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     MessageBox.Show("Lamentablemente NO se pudo Guardar...", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
@@ -129,15 +130,15 @@ namespace FrmPpal
         }
 
         //ToolStripMenuItem???
-        private void MostrarToolStripMenuItem(object sender,EventArgs e)
+        private void mostrarToolStripMenuItem1(object sender, EventArgs e)
         {
-            
+
             this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
         }
 
-        private void lstEstadoEntregado_MouseDown(object sender, MouseEventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
+            mostrarToolStripMenuItem1(sender, e);
         }
     }
 }

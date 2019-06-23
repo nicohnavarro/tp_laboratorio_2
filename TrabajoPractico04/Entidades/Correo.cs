@@ -49,7 +49,7 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             foreach (Paquete paqueteAux in paquetesAux)
             {
-                sb.AppendFormat("{0} PARA {1} ({2})\n", paqueteAux.TrackingID, paqueteAux.DireccionEntrega, paqueteAux.Estado);
+                sb.AppendFormat("{0} para {1} ({2})\n", paqueteAux.TrackingID, paqueteAux.DireccionEntrega, paqueteAux.Estado);
             }
             return sb.ToString();
         }

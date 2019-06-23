@@ -18,11 +18,12 @@ namespace Entidades
         public static bool Guardar(this string texto,string archivo)
         {
             bool retorno = false;
+            StreamWriter sw = new StreamWriter(String.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), archivo), true);
             try
             {
-                StreamWriter sw = new StreamWriter(String.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), archivo), true);
+               
                 sw.WriteLine(texto);
-                sw.Close();
+                //sw.Close();
                 retorno = true;
             }
             catch (Exception)
@@ -30,7 +31,10 @@ namespace Entidades
 
                 retorno = false;
             }
-
+            finally
+            {
+                sw.Close();
+            }
             return retorno;
         }
     }
