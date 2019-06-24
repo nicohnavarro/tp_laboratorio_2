@@ -16,6 +16,7 @@ namespace TestUnitarios
             correoPrueba = new Correo();
             //ASSERT
             Assert.IsNotNull(correoPrueba);
+            Assert.IsNotNull(correoPrueba.Paquetes);
         }
 
         [TestMethod]
