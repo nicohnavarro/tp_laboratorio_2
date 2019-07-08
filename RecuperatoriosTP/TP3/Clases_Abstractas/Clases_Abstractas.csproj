@@ -7,7 +7,7 @@
     <ProjectGuid>{169FBB94-144D-4096-A078-2B05943A84EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Clases_Abstractas</RootNamespace>
+    <RootNamespace>EntidadesAbstractas</RootNamespace>
     <AssemblyName>Clases_Abstractas</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -43,6 +43,13 @@
   <ItemGroup>
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Universitario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{92eee814-ce50-4648-8e19-bff5ce46828c}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ClaseAbstractas
+namespace EntidadesAbstractas
 {
-    public enum ENacionalidad
-    {
-        Argentino, Extranjero
-    }
     public abstract class Persona
     {
+        public enum ENacionalidad
+        {
+            Argentino, Extranjero
+        }
         #region Atributos
         private string apellido;
         private int dni;
@@ -74,11 +75,24 @@ namespace ClaseAbstractas
             this.StringToDNI = dni;
         }
 
+        /// <summary>
+        /// Metodo para informar los datos de una persona
+        /// </summary>
+        /// <returns>informacion de persona</returns>
         public override string ToString()
         {
-            return base.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("NOMBRE COMPLETO: {0}, {1}\r\n",this.Apellido,this.Nombre);
+            sb.AppendFormat("NACIONALIDAD: {0}\n", this.Nacionalidad.ToString());
+            return sb.ToString();
         }
 
+        /// <summary>
+        /// Valida la nacionalidad con el numero de dni
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns>el numero de dni(int)</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
             int datoRetorno = 0;
@@ -88,17 +102,23 @@ namespace ClaseAbstractas
                     if (dato >= 0 && dato <= 89999999)
                         datoRetorno = dato;
                     else
-                        throw new NacionalidadInvalidaException();
+                        throw new NacionalidadInvalidaException("La nacionalidad no se condice con el numero de DNI");
                     break;
                 case ENacionalidad.Extranjero:
                     if (dato >= 90000000 && dato <= 99999999)
                         datoRetorno = dato;
                     else
-                        throw new NacionalidadInvalidadException();
+                        throw new NacionalidadInvalidaException("La nacionalidad no se condice con el numero de DNI");
                     break;
             }
             return datoRetorno;
         }
+        /// <summary>
+        /// Valida la nacionalidad con el dni (string)
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns>dni (int)</returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             int datoRetorno = 0;
@@ -114,15 +134,19 @@ namespace ClaseAbstractas
                 throw new DniInvalidoException();
             return datoRetorno;
         }
+
+        /// <summary>
+        /// Valida que el nombre o apellido sea correcto atravez de expresiones regulares
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns>nombre o apellido</returns>
         private string ValidarNombreApellido(string dato)
         {
-            string datoRetorno;
+            string datoRetorno="";
             string nombreFormat = "[A-Z]{1}[a-z]*$";
             Regex regexNombre = new Regex(nombreFormat);
             if (regexNombre.IsMatch(dato))
                 datoRetorno = dato;
-            else
-                throw new Exception();
             return datoRetorno;
         }
         #endregion
