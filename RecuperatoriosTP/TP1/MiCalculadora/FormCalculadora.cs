@@ -17,6 +17,7 @@ namespace MiCalculadora
         public FormCalculadora()
         {
             InitializeComponent();
+            cmbOperador.Text = "+";
         }
 
         /*
@@ -33,7 +34,7 @@ namespace MiCalculadora
         {
             txtNumero1.Text = "";
             txtNumero2.Text = "";
-            cmbOperador.Text = "";
+            cmbOperador.Text = "+";
             lblResultado.Text = "";
         }
 
